@@ -1,6 +1,5 @@
 const express = require('express');
-const chromium = require('chrome-aws-lambda');
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 
 const app = express();
 const port = 3003;
@@ -8,11 +7,15 @@ const port = 3003;
 async function fetchAnnouncements(userId) {
   console.time('fetchAnnouncements');
   const browser = await puppeteer.launch({
-    args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
-    ignoreHTTPSErrors: true,
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--disable-gpu',
+      '--window-size=1920x1080'
+    ]
   });
   const page = await browser.newPage();
 
@@ -115,5 +118,3 @@ app.get('/api/user/:userId/announcements', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-
-module.exports = app; // Exporter l'application pour Vercel
