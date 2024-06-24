@@ -11,9 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chrome-aws-lambda": "^10.1.0",
     "chromedriver": "^126.0.3",
     "express": "^4.19.2",
     "puppeteer": "^22.6.3",
+    "puppeteer-core": "^10.1.0",
     "selenium-webdriver": "^4.22.0"
   },
   "devDependencies": {
