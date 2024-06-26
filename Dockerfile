@@ -32,4 +32,4 @@ COPY . .
 EXPOSE 3003
 
 # Start the application
-CMD [ "node", "app.js" ]
+CMD [ "node", "--trace-warnings", "app.js" ]
