@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chromedriver": "^126.0.3",
+    "chromedriver": "^126.0.4",
     "express": "^4.19.2",
-    "puppeteer": "^22.6.3",
+    "puppeteer": "^22.12.1",
     "selenium-webdriver": "^4.22.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.4"
   }
 }
